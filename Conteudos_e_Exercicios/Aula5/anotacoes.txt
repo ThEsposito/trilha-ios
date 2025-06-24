@@ -1,0 +1,19 @@
+Laços
+
+for ____ in ____ {      Definido (pra arrays)
+    *bloco*
+}
+
+for ___ in range(n){
+    *bloco*
+}
+
+while *condicao* {      Indefinido
+    *bloco*
+}
+
+
+ - 3 pontinhos???
+    for numero in 1...5 {
+        print(numero)
+    }
