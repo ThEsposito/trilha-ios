@@ -1,0 +1,37 @@
+Laços
+
+for ____ in ____ {      Definido (pra arrays)
+    *bloco*
+}
+
+for ___ in range(n){
+    *bloco*
+}
+
+while *condicao* {      Indefinido
+    *bloco*
+}
+
+
+ - 3 pontinhos (valores inclusivos)
+    for numero in 1...5 {
+        print(numero)
+    }
+
+ - 3 pontinhos (não incluindo o fim)
+    for numero in 1..<5 {
+        print(numero)
+    }
+
+ - 3 pontinhos (valores totalmente exclusivos)
+    for numero in x+1..<y {
+        print(numero)
+    }
+
+ - 3 pontinhos (eternamente, até acabar)
+    for numero in 1... {
+        print(numero)
+    }
+
+
+Continue e break existem em swift

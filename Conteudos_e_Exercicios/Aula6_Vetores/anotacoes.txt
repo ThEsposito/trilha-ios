@@ -1,0 +1,36 @@
+VETORES
+
+- Dados devem ter o mesmo tipo
+
+Sintaxe: var frutas: [String] = ["Maçã", "Banana", "Laranja", "Pera"]
+ou:                  var frutas = ["Maçã", "Banana", "Laranja"]
+Obs: Se for criar uma lista vazia, é necessário esplicitar o tipo já que o compilador não consegue inferí-lo
+
+var arr: [Int] = []
+
+Uso:
+    frutas[0]       --> "maçã"
+
+Fatiamento:
+    frutas[0...2]   --> ["Maçã", "Banana", "Laranja"]
+
+Métodos para vetores:
+    frutas.append("Melancia")
+
+    frutas.remove(at:2)     // Remove o valor no índice 2 (não esqueça do at:)
+
+    frutas.count            // (É um atributo??). Retorna a qtde de elem
+
+    frutas.isEmpty          // Retorna True se o vetor for vazio
+
+    frutas.contains("Banana")   // Retorna true se o 
+
+    frutas.max e frutas.min     // Retorna o maior ou menor valor do Array
+
+    .reversed()                 // Inverte
+
+    .insert[_valor_, at: _indice_]  // Insere o valor no indice especificado
+
+    .sort()         // Autoexplicativo
+
+    
