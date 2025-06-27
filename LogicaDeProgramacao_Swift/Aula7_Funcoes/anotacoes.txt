@@ -1,0 +1,62 @@
+**FUNÇÕES**
+
+.Sintaxe:
+ - Sem parâmetros
+    func saudacao() {
+        print("Olá!")
+    }
+
+ - Com parâmetros (deve-se indicar o tipo de cada parâmetro)
+    func apresentar(nome: String){
+        print("Olá, \(nome)")
+    }
+
+ - Chamando (especifica-se os parâmetros que você quer passar pelos respectivos nomes):
+    apresentar(nome: "Theo")
+
+ - Retorno (indique o tipo do retorno com a setinha):
+    func soma(a: Int, b: Int) -> Int {
+        return a+b
+    }
+
+    let resultado = soma(a:5, b: 3)
+  Obs: Funções sem retorno não precisam ser do tipo void, é só não especificar o tipo (como no 1o exemplo)
+ 
+ - Com listas (a assinatura ficaria assim):
+    func funcao(a:[Int]) -> [Int]{
+        var b = acessarb.romeve(at: x)
+        * bloco de código *
+        return b
+    }
+
+ - Não precisando especificar os argumentos na chamada (generic)
+    func deposito(_ valor:Double){
+        _código_
+    }
+
+    Generic: quando a gente tem um parâmetro (como o i num for) que não é usado dentro da função, a IDE sugere que
+    a gente use uma variavel chamada "_". Dessa forma, não criamos nomenclatura pra aquela variável.
+
+    Na função, o Generic é usado  quando a gente não exige que se especifique o parâmetro na hora da chamada.
+    Desta forma, é necessário se atentar à ordem dos parâmetros.
+
+ - Valores padrão, caso o parâm n seja passado (atribui-se um valor ao padrão na assinatura):
+    func funcao(valor: Int = 0){}
+
+ - Passagem por referencia (alterar uma variável num escopo global): escreve-se inout antes do parâmetro
+   a ser referenciado:
+    func deposito(inout saldo: Double, valor){
+        extrato += valor
+    }
+
+    deposito(extrato: &extrato) // Na hora da chamada
+
+. Dá pra passar funcções como parâmetros para outras funções (disponível no material)
+. Variáveis criadas dentro das funções só funcionam dentro do escopo dela (inclui listas??)
+. Funções normalmente só conseguem utilizar variáveis criadas dentro dela (dá pra acessar valores globais, mas n é ideal)
+. Faça funções com alta coesão e baixo acoplamento. Funções devem fazer o mínimo de tarefas possível.
+. Evite alterar variáveis globais dentro de funções.
+
+Dúvidas:
+. Oq é dto (data transfer options)????
+. Qual a diferença entre engenharia e arquitetura de software?

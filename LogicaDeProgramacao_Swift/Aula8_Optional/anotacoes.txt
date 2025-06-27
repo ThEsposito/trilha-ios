@@ -1,0 +1,49 @@
+** Tipo Optional **
+Podemos declarar uma variável como opcional quando podem ter um valor ou não. 
+
+Nil é quase o mesmo que null. Porém, o nil É UM VALOR, do tipo Optional? 
+É quando não tem nenhum tipo de dado naquela variável. Nil é um VALOR e Optional é um TIPO.
+Somente variáveis opcionais podem ser definidas como nulas (nil)
+
+O Swift faz uma distinção muito clara entre "nenhum valor" e todos os outros valores. 
+"Nenhum valor" é chamado de nil e é um tipo diferente de todos os outros.
+
+Tudo isso é feito pra impedir o nullPointerException
+Quando acessamos um optional, não acessamos o valor diretamente.
+
+Quando queremos encerrar um programa fora de funções ou loops, podemos usar:
+fatalError() 
+exit(1) // Ou -1, o valor q vc quiser
+
+Para validar se uma variável tem valor (!= nil, ou nulo),
+podemos usar o guard let. Caso não tenha valor, ele executa um trecho de código que deve encerrar a execução
+seja do programa ou de uma função.
+Caso contrário, prossegue normalmente.
+
+
+Tudo isso são formas de se tratar exceções de valores nulos.
+Temos várias formas de tentar acessar o valor e, se der pau, executar algum bloco ou retornar algo.
+
+Em casos de conversão um valor lido, vamos sempre usar 2 if let's (ou guard let's):
+ Um pra verificar se o valor lido não é nulo/vazio/nil.
+ Outro pra verificar se essa string (p. ex.) pode ser convertida para inteiro (exemplo do telefone).
+
+ O Swift vai sempre criar um Optional do valor real, caso seja possível dar errado em alguma ação do código.
+ Um exemplo é a conversão de str pra int.
+
+Obs: variáveis criadas com o if let só existem dentro do escopo dele
+
+
+Nil-Coalescing Operator:
+    Ele é usado para desempacotar um opcional existente de forma segura, fornecendo um valor padrão caso o opcional seja nil.
+    Sintaxe: let texto: String? = readLine() ?? "Thomas"
+    // Se for nil na entrada de dados, será "Thomas".
+
+Force Unwraping: é o exclamação que a gente usou toda hora. Ele força a pegar o valor real de um Optional (desempacotar)
+e se der erro, o programa crasha.
+
+
+Dá pra criar vetores de Optionals, iterar dentro deles e etc
+
+É interessante refazer todos os exercícios anteriores, usando if e guard let, pra impedir essas tretas
+Ctrl + d (no terminal) simula uma entrada vazia, pra verificar erros
