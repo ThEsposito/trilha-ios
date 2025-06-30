@@ -24,6 +24,15 @@ func editarTarefa(indice: Int, novo_texto: String, tarefas: [String]) -> [String
     return tarefas
 }
 
+func contemApenas(caractere: String, texto: String) -> Bool { // Usada pra verificar se o usuário digitou uma tarefa em branco
+    for i in 0..<texto.count {
+        if texto[i] != caractere{
+            return false
+        }
+    }
+    return true
+}
+
 // MAIN
 let opcao = -1
 var tarefas: [String] = []
@@ -49,10 +58,10 @@ Escolha uma opção:
 
     switch opcao {
         case 1: // Listar Tarefas
-            print("\n=== Suas tarefas ===")
             if tarefas.count == 0 {
-                print("Sua lista de tarefas ainda está vazia!\n")
+                print("Sua lista de tarefas ainda está vazia!")
             } else {
+                print("\n=== Suas tarefas ===")
                 listarTarefas(tarefas: tarefas)
             }
 
@@ -63,11 +72,12 @@ Escolha uma opção:
                 exit(1)
             }
 
-            if tarefas == "" || tarefas == " "{
+            if contemApenas(caractere: " ", texto: nova_tarefa) || nova_tarefa == "\n" {
                 print("Sua entrada está em branco!! Tente novamente.")
             } else {
                 tarefas = adicionarTarefa(tarefa: nova_tarefa, tarefas: tarefas)
             }
+        
         case 3: // Remover tarefa (pedir o índice +1)
             print("Qual tarefa você gostaria de remover? Digite o número dela:", terminator: " ")
             guard let id = readLine() else{
@@ -101,6 +111,7 @@ Escolha uma opção:
                 print("O id digitado não existe na sua lista!")
                 continue
             }
+            
             print("Digite o novo texto para a tarefa \(id):", terminator:" ")
 
             guard let novo_texto = readLine() else {
@@ -108,7 +119,11 @@ Escolha uma opção:
                 exit(1)
             }
 
-            tarefas = editarTarefa(indice: id-1, novo_texto: novo_texto, tarefas: tarefas)
+            if contemApenas(caractere: " ", texto: novo_texto) || novo_texto == "\n"{
+                print("Sua entrada está em branco!! Tente novamente.")
+            } else {
+                tarefas = editarTarefa(indice: id-1, novo_texto: novo_texto, tarefas: tarefas)
+            }
 
         case 0:
             print("\nPrograma Encerrado!\n")
