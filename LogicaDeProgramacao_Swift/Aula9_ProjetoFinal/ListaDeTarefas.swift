@@ -25,8 +25,8 @@ func editarTarefa(indice: Int, novo_texto: String, tarefas: [String]) -> [String
 }
 
 func contemApenas(caractere: String, texto: String) -> Bool { // Usada pra verificar se o usuário digitou uma tarefa em branco
-    for i in 0..<texto.count {
-        if texto[i] != caractere{
+    for texto_char in texto {
+        if String(texto_char) != caractere {
             return false
         }
     }
