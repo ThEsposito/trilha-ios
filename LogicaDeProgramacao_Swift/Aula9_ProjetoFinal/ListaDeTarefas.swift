@@ -181,7 +181,7 @@ Escolha uma opção:
             }
 
             if (prioridadeAtual == prioridadeNova) {
-                print("A prioridade nova é igual à antiga!")
+                print("A prioridade nova é igual à antiga!\n")
                 continue
             }
 
