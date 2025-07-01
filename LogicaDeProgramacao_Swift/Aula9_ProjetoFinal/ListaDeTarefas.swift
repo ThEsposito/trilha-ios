@@ -2,7 +2,7 @@ import Foundation // Para utilizar o exit()
 
 func listarTarefas(tarefas: [String]){
     for (i, tarefa) in tarefas.enumerated(){
-        print("\(i+1). \(tarefa);")
+        print("\(i+1). \(tarefa)")
     }
 }
 
@@ -21,6 +21,15 @@ func removerTarefa(indice: Int, tarefas: [String]) -> [String]{
 func editarTarefa(indice: Int, novo_texto: String, tarefas: [String]) -> [String]{
     var tarefas = tarefas
     tarefas[indice] = novo_texto
+    return tarefas
+}
+
+func mudarPrioridade(indiceInicial: Int, indiceFinal: Int, tarefas: [String]) -> [String] {
+    let temp = tarefas[indiceInicial]
+    var tarefas = tarefas
+    tarefas.remove(at: indiceInicial) 
+    tarefas.insert(temp, at: indiceFinal)
+
     return tarefas
 }
 
@@ -44,9 +53,11 @@ while opcao != 0 {
   2 - Adicionar tarefa
   3 - Remover tarefa
   4 - Editar tarefa
+  5 - Mudar prioridade de uma tarefa
   0 - Sair
 Escolha uma opção:
 """, terminator:" ")
+
     guard let opcao = readLine() else{
         print("Entrada vazia! Encerrando programa!\n")
         exit(1)
@@ -78,7 +89,12 @@ Escolha uma opção:
                 tarefas = adicionarTarefa(tarefa: nova_tarefa, tarefas: tarefas)
             }
         
-        case 3: // Remover tarefa (pedir o índice +1)
+        case 3: // Remover tarefa (especificada pelo índice+1)
+            if tarefas.count == 0 {
+                print("Sua lista de tarefas ainda está vazia!\n")
+                continue
+            }
+
             print("Qual tarefa você gostaria de remover? Digite o número dela:", terminator: " ")
             guard let id = readLine() else{
                 print("Entrada vazia! Encerrando programa!\n")
@@ -90,13 +106,18 @@ Escolha uma opção:
                 continue
             }
 
-            if id < 1 || id > tarefas.count+1 {
+            if id < 1 || id > tarefas.count {
                 print("O id digitado não existe na sua lista!")
             } else {
                 tarefas = removerTarefa(indice: id-1, tarefas: tarefas)
             }
 
         case 4: // Editar tarefa. Pedir o índice +1 e o novo texto
+            if tarefas.count == 0 {
+                print("Sua lista de tarefas ainda está vazia!\n")
+                continue
+            }
+
             print("Qual tarefa você gostaria de editar? Digite o número dela:", terminator: " ")
             guard let id = readLine() else{
                 print("Entrada vazia! Encerrando programa!\n")
@@ -107,7 +128,7 @@ Escolha uma opção:
                 continue
             }
 
-            if id < 1 || id > tarefas.count+1 {
+            if id < 1 || id > tarefas.count {
                 print("O id digitado não existe na sua lista!")
                 continue
             }
@@ -124,6 +145,47 @@ Escolha uma opção:
             } else {
                 tarefas = editarTarefa(indice: id-1, novo_texto: novo_texto, tarefas: tarefas)
             }
+
+        case 5: // Alterar Prioridade
+            print("Digite a prioridade atual da tarefa:", terminator: " ")
+            guard let prioridadeAtual = readLine() else {
+                print("Entrada vazia! Encerrando programa!\n")
+                exit(1)
+            }
+
+            guard let prioridadeAtual = Int(prioridadeAtual) else {
+                print("O valor digitado não pode ser convertido para inteiro!\n")
+                continue
+            }
+
+            if prioridadeAtual <= 0 || prioridadeAtual > tarefas.count {
+                print("O id digitado não existe na sua lista!")
+                continue
+            } 
+
+            print("Digite a nova prioridade para a tarefa \(prioridadeAtual):", terminator:" ")
+            guard let prioridadeNova = readLine() else {
+                print("Entrada vazia! Encerrando programa!\n")
+                exit(1)
+            }
+
+            guard let prioridadeNova = Int(prioridadeNova) else {
+                print("O valor digitado não pode ser convertido para inteiro!\n")
+                continue
+            }
+
+            if prioridadeNova <= 0 || prioridadeNova > tarefas.count {
+                print("O id digitado não existe na sua lista!")
+                continue
+            }
+
+            if (prioridadeAtual == prioridadeNova) {
+                print("A prioridade nova é igual à antiga!")
+                continue // Usando demais o continue? É melhor usar else if's?
+            }
+
+            tarefas = mudarPrioridade(indiceInicial: prioridadeAtual-1, indiceFinal: prioridadeNova-1, tarefas: tarefas)
+
 
         case 0:
             print("\nPrograma Encerrado!\n")
