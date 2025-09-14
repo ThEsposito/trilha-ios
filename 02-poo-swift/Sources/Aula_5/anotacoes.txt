@@ -1,0 +1,55 @@
+Pesquisar: padrão UML
+DIAGRAMACAO
+- Diagramas de classe: 
+    - Um Diagrama de Classes é uma representação visual e estática da estrutura de um sistema. 
+    - Ele não mostra o programa em execução, mas sim como suas peças (as classes) são estruturadas e 
+    como elas se relacionam entre si.
+    
+    *palinhas sobre metodologias ágeis*: Diagramas de classes são uma ferramenta pra isso
+    - Serve como uma ferramenta de comunicação, planejamento e documentação. 
+    - Ele cria uma ponte entre a ideia abstrata de um sistema e sua implementação concreta em código, 
+    permitindo que desenvolvedores, analistas e até mesmo clientes visualizem e concordem com a 
+    arquitetura antes que uma única linha de código seja escrita.
+
+- Diagramas UML - Exemplo:
+
+        *Car*  (negrito)
+    -----------------
+    - make: String
+    - model: String
+    - year: String
+    -----------------
+    + start(): void
+    + stop(): void
+    + drive (in speed)
+
+    Relacionamentos podem ser compostos ou agregados
+    - Composição: Uma classe não existe sem a outra
+    - Agregação: O contrário.
+
+
+ATIVIDADE:
+Análise e encontre os erros comparando o diagrama e o código implementado.
+Apenas as seguintes classes devem ser análisadas:
+Achar no mínimo 7 erros
+Troco
+TicketMachine
+PapelMoeda
+
+https://github.com/PedrodeAndradecf/AulaPOOS5.git
+
+PROTOCOLOS
+- São como as interfaces do Java
+- Relacionadas com o baixo acoplamento
+
+- Um bom exemplo é são os protocolos Codable e Encodable do SwiftUI, que você usa em uma classe quando quer
+consumir uma API
+- Tanto classes quando structs podem seguir um protocolo 
+
+Exemplo:
+
+protocol VendavelOnline {
+    //Propriedade obrigatória
+    var preco: Double { get } // O get indica que o atrib deve ser obrigatoriamente gettable (precisa de um getter pra ele)
+    func adicionarAoCarrinho() 
+}

@@ -1,0 +1,38 @@
+PARADIGMAS DE PROGRAMAÇÃO
+
+TIPOS DE REFERÊNCIA E GERENCIAMENTO DE MEMÓRIA
+Variáveis do tipo de valor são guardadadas na Stack.
+
+Objetos trabalham com referência, então uma variável do tipo de referência aponta para um
+espaço em memória no Heap: um espaço que todas as threads do processador compartilham.
+
+Cada objeto precisa de uma heap própria, portanto, ocupando muito espaço em memória.
+Em java, o garbage collector é responsável por liberar da memória os objetos (dados) que
+não tem nenhuma variável de referência apontando pra eles.
+
+No swift, quem faz essa limpeza é o Ark. 
+Embora structs se comportem como objetos, elkas são do tipo valor. Por isso, pesam muito menos na memória e são muito mais 
+utilizadas para o desenvolvimento de aplicações mobile.
+
+CLASSES
+ x Construtores são declaradas como init:
+
+init(nome: String, idade: Int){
+    self.nome = nome;
+    self.idade = idade;
+}
+ Obs: note que o self é o mesmo que um "this" do java.
+
+ Em structs: já é criado automaticamente
+ struct carroModel {
+     let modelo: String
+     let marca: Strinf
+ }
+ let carro = CarroModel(modelo: "focus", marca: "ford")
+
+ENUMS
+enum Modelo {
+    case focus
+    case Fiesta
+    case Fusion
+}
