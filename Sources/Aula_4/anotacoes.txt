@@ -1,0 +1,12 @@
+HERANCA
+ - Especialização
+
+Muitos componentes do SwiftUI trabalham com classes, justamente porque podemos trabalhar com herança
+Alguns exemplos: Views, Buttons
+
+
+POLIMORFISMO
+ - Um único método pode se comportar de maneira diferente dependendo do objeto que o está chamando
+ - temos dois tipos de polimorfismo 
+  - Sobrescrita
+  - Sobrecarga

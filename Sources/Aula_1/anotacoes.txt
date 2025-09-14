@@ -1,0 +1,28 @@
+Objetos em Swift não são do tipo reference! São do tipo valor!
+Isso acontece por conta do uso excessivo de memória (principalmente onde o foco são aplicativos), então os objetos 
+aqui são tratados como valor e são desalocados com o desuso.
+
+ESTRUTURAS DE DADOS: sets, tuplas, dicionários
+Sets: 
+- Não permitem duplicatas.
+- São baseadas em hash: NÃO SÃO INDEXADOS. Se passarmos um array, pra criar um set, podemos perder
+  a ordem original.
+- A sintaxe é bem parecida com 
+
+Tuplas: 
+- Listas imutáveis. Tamanhos e tipos definidos na criação.
+- Podem ser heterogêneas: permitem tipos de dados diferentes.
+- Value type
+- Podem ter rótulos (nomes) para os campos (opcional)
+- NÃO te métodos, NÃO conformam a protocolos(????), NÃO podem ser estendidas
+
+Dicionários: 
+- É bem melhor pra filtragem, por exemplo. Não tem essa complexidade toda da tupla. É bem melhor pra manipular valores
+- Chave-valor: buscagem rápida.
+- Também são hash em swift. 
+- Normalmente trabalhados com structs. 
+- Chave e valor tem tipagem fixa
+- O Swift sempre retorna um valor OPTIONAL quando a chave é acessada, para caso ela não tenha sido criada.
+
+
+*PRA CASA*: pesquisar sobre tabela hash. São O(1).
