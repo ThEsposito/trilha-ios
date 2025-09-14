@@ -4,7 +4,7 @@
 //
 //  Created by Aluno Mack on 04/07/25.
 //
-/*
+
 import Foundation
 
 func isPar(num: Int) -> Bool {
@@ -35,4 +35,3 @@ if isPar(num:valor) {
         cont += 2
     }
 }
-*/

@@ -5,7 +5,6 @@
 //  Created by Aluno Mack on 04/07/25.
 //
 
-/*
 import Foundation
 
  func isPar(num: Int) -> Bool {
@@ -41,4 +40,4 @@ import Foundation
  } else {
      print("É ímpar! ")
  }
-*/
+
